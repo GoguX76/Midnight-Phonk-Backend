@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "users", indexes = {
-    @Index(name = "idx_users_email", columnList = "email")
+    @Index(name = "idx_app_users_email", columnList = "email")
 })
 @Data
 @AllArgsConstructor

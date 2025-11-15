@@ -6,7 +6,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import java.time.LocalDateTime;
 
 @Data
 @AllArgsConstructor
@@ -18,35 +17,31 @@ import java.time.LocalDateTime;
 public class Blog {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long idNew;
 
     @NotBlank
     @Column
-    private String title;
+    private String titleNew;
+
+    @Column
+    private String imageNew;
+
+    @Column
+    private String categoryNew;
+
+    @Column
+    private String shortDescNew;
 
     @NotBlank
     @Column
-    private String summary;
+    private String autorNew;
 
-    @NotBlank
     @Column
-    private String description;
+    private String dateNew;
 
-    @NotBlank
+    @Column(columnDefinition = "TEXT")
+    private String fullDescNew;
+
     @Column
-    private String author;
-
-    @NotBlank
-    @Column
-    private LocalDateTime updateAt;
-
-    @PrePersist
-    protected void onCreate() {
-        updateAt = LocalDateTime.now();
-    }
-
-    @PreUpdate
-    protected void onUpdate() {
-        updateAt = LocalDateTime.now();
-    }
+    private Integer likes = 0;
 }

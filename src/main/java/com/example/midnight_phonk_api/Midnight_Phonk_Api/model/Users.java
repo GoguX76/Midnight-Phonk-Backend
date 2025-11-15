@@ -23,7 +23,7 @@ public class Users {
 
     @NotBlank
     @Column(nullable = false)
-    private String name;
+    private String nombre;
 
     @Email
     @NotBlank

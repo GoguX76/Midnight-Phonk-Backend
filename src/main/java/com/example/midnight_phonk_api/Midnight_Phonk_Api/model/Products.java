@@ -23,15 +23,18 @@ public class Products {
     @Column(nullable = false)
     public String title;
 
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "TEXT")
     public String image;
 
-    @Column(nullable = false)
-    public String shortDesc;
+    @Column(nullable = false, name = "description", columnDefinition = "TEXT")
+    public String desc;
 
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "TEXT")
     public String fullDesc;
 
     @Column(nullable = false)
     public double price;
+
+    @Column(nullable = false)
+    public Integer stock = 0;
 }

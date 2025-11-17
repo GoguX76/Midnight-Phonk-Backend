@@ -36,7 +36,6 @@ public class Blog {
     @Column
     private String author;
 
-    @NotBlank
     @Column
     private LocalDateTime updateAt;
 

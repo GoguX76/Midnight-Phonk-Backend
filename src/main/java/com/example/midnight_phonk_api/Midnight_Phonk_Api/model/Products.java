@@ -37,4 +37,7 @@ public class Products {
 
     @Column(nullable = false)
     public Integer stock = 0;
+
+    @Column(nullable = true)
+    public String category;
 }

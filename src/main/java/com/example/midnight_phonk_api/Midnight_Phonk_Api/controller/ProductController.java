@@ -45,6 +45,7 @@ public class ProductController {
                     product.setFullDesc(productDetails.getFullDesc());
                     product.setPrice(productDetails.getPrice());
                     product.setStock(productDetails.getStock());
+                    product.setCategory(productDetails.getCategory());
                     Products updatedProduct = productRepository.save(product);
                     return ResponseEntity.ok(updatedProduct);
                 })
@@ -61,6 +62,7 @@ public class ProductController {
                     if (productDetails.getFullDesc() != null) product.setFullDesc(productDetails.getFullDesc());
                     if (productDetails.getPrice() != 0) product.setPrice(productDetails.getPrice());
                     if (productDetails.getStock() != null) product.setStock(productDetails.getStock());
+                    if (productDetails.getCategory() != null) product.setCategory(productDetails.getCategory());
                     Products updatedProduct = productRepository.save(product);
                     return ResponseEntity.ok(updatedProduct);
                 })

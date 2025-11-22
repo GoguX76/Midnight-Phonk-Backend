@@ -23,7 +23,7 @@ public class Blog {
     @Column
     private String titleNew;
 
-    @Column
+    @Column(columnDefinition = "TEXT")
     private String imageNew;
 
     @Column

@@ -42,6 +42,7 @@ public class Blog {
     @Column(columnDefinition = "TEXT")
     private String fullDescNew;
 
+    @Builder.Default
     @Column
     private Integer likes = 0;
 }

@@ -39,10 +39,10 @@ public class BlogController {
     public ResponseEntity<Blog> updateBlog(@PathVariable Long id, @Valid @RequestBody Blog blogDetails) {
         return blogRepository.findById(id)
                 .map(blog -> {
-                    blog.setTitle(blogDetails.getTitle());
-                    blog.setSummary(blogDetails.getSummary());
-                    blog.setDescription(blogDetails.getDescription());
-                    blog.setAuthor(blogDetails.getAuthor());
+                    blog.setTitleNew(blogDetails.getTitleNew());
+                    blog.setShortDescNew(blogDetails.getShortDescNew());
+                    blog.setFullDescNew(blogDetails.getFullDescNew());
+                    blog.setAutorNew(blogDetails.getAutorNew());
                     Blog updatedBlog = blogRepository.save(blog);
                     return ResponseEntity.ok(updatedBlog);
                 })

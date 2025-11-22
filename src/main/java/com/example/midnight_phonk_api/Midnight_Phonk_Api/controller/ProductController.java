@@ -41,7 +41,7 @@ public class ProductController {
                 .map(product -> {
                     product.setTitle(productDetails.getTitle());
                     product.setImage(productDetails.getImage());
-                    product.setShortDesc(productDetails.getShortDesc());
+                    product.setDesc(productDetails.getDesc());
                     product.setFullDesc(productDetails.getFullDesc());
                     product.setPrice(productDetails.getPrice());
                     product.setStock(productDetails.getStock());
@@ -55,12 +55,18 @@ public class ProductController {
     public ResponseEntity<Products> patchProduct(@PathVariable Long id, @RequestBody Products productDetails) {
         return productRepository.findById(id)
                 .map(product -> {
-                    if (productDetails.getTitle() != null) product.setTitle(productDetails.getTitle());
-                    if (productDetails.getImage() != null) product.setImage(productDetails.getImage());
-                    if (productDetails.getDesc() != null) product.setDesc(productDetails.getDesc());
-                    if (productDetails.getFullDesc() != null) product.setFullDesc(productDetails.getFullDesc());
-                    if (productDetails.getPrice() != 0) product.setPrice(productDetails.getPrice());
-                    if (productDetails.getStock() != null) product.setStock(productDetails.getStock());
+                    if (productDetails.getTitle() != null)
+                        product.setTitle(productDetails.getTitle());
+                    if (productDetails.getImage() != null)
+                        product.setImage(productDetails.getImage());
+                    if (productDetails.getDesc() != null)
+                        product.setDesc(productDetails.getDesc());
+                    if (productDetails.getFullDesc() != null)
+                        product.setFullDesc(productDetails.getFullDesc());
+                    if (productDetails.getPrice() != 0)
+                        product.setPrice(productDetails.getPrice());
+                    if (productDetails.getStock() != null)
+                        product.setStock(productDetails.getStock());
                     Products updatedProduct = productRepository.save(product);
                     return ResponseEntity.ok(updatedProduct);
                 })

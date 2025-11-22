@@ -1,0 +1,83 @@
+
+> Task :compileJava FAILED
+C:\Users\sebas\OneDrive\Documentos\Codes Visual\Midnight-Phonk-Api\src\main\java\com\example\midnight_phonk_api\Midnight_Phonk_Api\model\Blog.java:46: warning: @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+    private Integer likes = 0;
+                    ^
+C:\Users\sebas\OneDrive\Documentos\Codes Visual\Midnight-Phonk-Api\src\main\java\com\example\midnight_phonk_api\Midnight_Phonk_Api\model\Products.java:39: warning: @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+    public Integer stock = 0;
+                   ^
+C:\Users\sebas\OneDrive\Documentos\Codes Visual\Midnight-Phonk-Api\src\main\java\com\example\midnight_phonk_api\Midnight_Phonk_Api\controller\BlogController.java:42: error: cannot find symbol
+                    blog.setTitle(blogDetails.getTitle());
+                                             ^
+  symbol:   method getTitle()
+  location: variable blogDetails of type @jakarta.validation.Valid Blog
+C:\Users\sebas\OneDrive\Documentos\Codes Visual\Midnight-Phonk-Api\src\main\java\com\example\midnight_phonk_api\Midnight_Phonk_Api\controller\BlogController.java:43: error: cannot find symbol
+                    blog.setSummary(blogDetails.getSummary());
+                                               ^
+  symbol:   method getSummary()
+  location: variable blogDetails of type @jakarta.validation.Valid Blog
+C:\Users\sebas\OneDrive\Documentos\Codes Visual\Midnight-Phonk-Api\src\main\java\com\example\midnight_phonk_api\Midnight_Phonk_Api\controller\BlogController.java:44: error: cannot find symbol
+                    blog.setDescription(blogDetails.getDescription());
+                                                   ^
+  symbol:   method getDescription()
+  location: variable blogDetails of type @jakarta.validation.Valid Blog
+C:\Users\sebas\OneDrive\Documentos\Codes Visual\Midnight-Phonk-Api\src\main\java\com\example\midnight_phonk_api\Midnight_Phonk_Api\controller\BlogController.java:45: error: cannot find symbol
+                    blog.setAuthor(blogDetails.getAuthor());
+                                              ^
+  symbol:   method getAuthor()
+  location: variable blogDetails of type @jakarta.validation.Valid Blog
+C:\Users\sebas\OneDrive\Documentos\Codes Visual\Midnight-Phonk-Api\src\main\java\com\example\midnight_phonk_api\Midnight_Phonk_Api\controller\ProductController.java:44: error: cannot find symbol
+                    product.setShortDesc(productDetails.getShortDesc());
+                                                       ^
+  symbol:   method getShortDesc()
+  location: variable productDetails of type @jakarta.validation.Valid Products
+5 errors
+2 warnings
+
+[Incubating] Problems report is available at: file:///C:/Users/sebas/OneDrive/Documentos/Codes%20Visual/Midnight-Phonk-Api/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileJava'.
+> Compilation failed; see the compiler output below.
+  C:\Users\sebas\OneDrive\Documentos\Codes Visual\Midnight-Phonk-Api\src\main\java\com\example\midnight_phonk_api\Midnight_Phonk_Api\model\Blog.java:46: warning: @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+      private Integer likes = 0;
+                      ^
+  C:\Users\sebas\OneDrive\Documentos\Codes Visual\Midnight-Phonk-Api\src\main\java\com\example\midnight_phonk_api\Midnight_Phonk_Api\model\Products.java:39: warning: @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+      public Integer stock = 0;
+                     ^
+  C:\Users\sebas\OneDrive\Documentos\Codes Visual\Midnight-Phonk-Api\src\main\java\com\example\midnight_phonk_api\Midnight_Phonk_Api\controller\BlogController.java:42: error: cannot find symbol
+                      blog.setTitle(blogDetails.getTitle());
+                                               ^
+    symbol:   method getTitle()
+    location: variable blogDetails of type @jakarta.validation.Valid Blog
+  C:\Users\sebas\OneDrive\Documentos\Codes Visual\Midnight-Phonk-Api\src\main\java\com\example\midnight_phonk_api\Midnight_Phonk_Api\controller\BlogController.java:43: error: cannot find symbol
+                      blog.setSummary(blogDetails.getSummary());
+                                                 ^
+    symbol:   method getSummary()
+    location: variable blogDetails of type @jakarta.validation.Valid Blog
+  C:\Users\sebas\OneDrive\Documentos\Codes Visual\Midnight-Phonk-Api\src\main\java\com\example\midnight_phonk_api\Midnight_Phonk_Api\controller\BlogController.java:44: error: cannot find symbol
+                      blog.setDescription(blogDetails.getDescription());
+                                                     ^
+    symbol:   method getDescription()
+    location: variable blogDetails of type @jakarta.validation.Valid Blog
+  C:\Users\sebas\OneDrive\Documentos\Codes Visual\Midnight-Phonk-Api\src\main\java\com\example\midnight_phonk_api\Midnight_Phonk_Api\controller\BlogController.java:45: error: cannot find symbol
+                      blog.setAuthor(blogDetails.getAuthor());
+                                                ^
+    symbol:   method getAuthor()
+    location: variable blogDetails of type @jakarta.validation.Valid Blog
+  C:\Users\sebas\OneDrive\Documentos\Codes Visual\Midnight-Phonk-Api\src\main\java\com\example\midnight_phonk_api\Midnight_Phonk_Api\controller\ProductController.java:44: error: cannot find symbol
+                      product.setShortDesc(productDetails.getShortDesc());
+                                                         ^
+    symbol:   method getShortDesc()
+    location: variable productDetails of type @jakarta.validation.Valid Products
+  5 errors
+  2 warnings
+
+* Try:
+> Check your code and dependencies to fix the compilation error(s)
+> Run with --scan to get full insights.
+
+BUILD FAILED in 1s
+1 actionable task: 1 executed

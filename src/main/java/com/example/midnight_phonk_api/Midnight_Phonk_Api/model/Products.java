@@ -35,6 +35,7 @@ public class Products {
     @Column(nullable = false)
     public double price;
 
+    @Builder.Default
     @Column(nullable = false)
     public Integer stock = 0;
 

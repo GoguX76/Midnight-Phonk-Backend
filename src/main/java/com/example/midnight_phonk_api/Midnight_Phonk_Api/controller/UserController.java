@@ -17,7 +17,12 @@ public class UserController {
     private UserRepository userRepository;
 
     @GetMapping
-    public ResponseEntity<List<Users>> getAllUsers() {
+    public ResponseEntity<List<Users>> getAllUsers(@RequestParam(required = false) String email) {
+        if (email != null) {
+            return userRepository.findByEmail(email)
+                    .map(user -> ResponseEntity.ok(List.of(user)))
+                    .orElse(ResponseEntity.ok(List.of()));
+        }
         List<Users> users = userRepository.findAll();
         return ResponseEntity.ok(users);
     }

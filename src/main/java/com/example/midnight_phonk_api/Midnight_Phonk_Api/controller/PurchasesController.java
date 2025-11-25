@@ -41,13 +41,11 @@ public class PurchasesController {
     }
 
     @PostMapping
-    public ResponseEntity<Purchases> createPurchase(
-            @RequestParam Long userId,
-            @RequestParam Long productId,
-            @RequestParam Integer quantity) {
+    public ResponseEntity<List<Purchases>> createPurchase(
+            @RequestBody com.example.midnight_phonk_api.Midnight_Phonk_Api.dto.PurchaseRequest request) {
         try {
-            Purchases purchase = purchasesService.createPurchase(userId, productId, quantity);
-            return ResponseEntity.ok(purchase);
+            List<Purchases> purchases = purchasesService.createPurchase(request);
+            return ResponseEntity.ok(purchases);
         } catch (RuntimeException e) {
             return ResponseEntity.badRequest().build();
         }

@@ -40,23 +40,37 @@ public class PurchasesService {
         return purchasesRepository.findByProductId(productId);
     }
 
-    public Purchases createPurchase(Long userId, Long productId, Integer quantity) {
-        Users user = userRepository.findById(userId)
-                .orElseThrow(() -> new RuntimeException("User not found"));
+    public List<Purchases> createPurchase(
+            com.example.midnight_phonk_api.Midnight_Phonk_Api.dto.PurchaseRequest request) {
+        Users user = userRepository.findByEmail(request.getUserId())
+                .orElseThrow(() -> new RuntimeException("User not found with email: " + request.getUserId()));
 
-        Products product = productRepository.findById(productId)
-                .orElseThrow(() -> new RuntimeException("Product not found"));
+        String shippingDetailsJson = "";
+        try {
+            shippingDetailsJson = new com.fasterxml.jackson.databind.ObjectMapper()
+                    .writeValueAsString(request.getShippingDetails());
+        } catch (Exception e) {
+            shippingDetailsJson = String.valueOf(request.getShippingDetails());
+        }
 
-        Double totalPrice = product.getPrice() * quantity;
+        String finalShippingDetails = shippingDetailsJson;
 
-        Purchases purchase = Purchases.builder()
-                .user(user)
-                .product(product)
-                .quantity(quantity)
-                .totalPrice(totalPrice)
-                .build();
+        return request.getItems().stream().map(item -> {
+            Products product = productRepository.findById(item.getId())
+                    .orElseThrow(() -> new RuntimeException("Product not found: " + item.getId()));
 
-        return purchasesRepository.save(purchase);
+            Double totalPrice = product.getPrice() * item.getQuantity();
+
+            Purchases purchase = Purchases.builder()
+                    .user(user)
+                    .product(product)
+                    .quantity(item.getQuantity())
+                    .totalPrice(totalPrice)
+                    .shippingDetails(finalShippingDetails)
+                    .build();
+
+            return purchasesRepository.save(purchase);
+        }).collect(java.util.stream.Collectors.toList());
     }
 
     public void deletePurchase(Long id) {

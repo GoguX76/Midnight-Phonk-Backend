@@ -34,6 +34,9 @@ public class Purchases {
     @Column(nullable = false)
     private Double totalPrice;
 
+    @Column(columnDefinition = "TEXT")
+    private String shippingDetails;
+
     @Column(nullable = false)
     private LocalDateTime purchaseDate;
 

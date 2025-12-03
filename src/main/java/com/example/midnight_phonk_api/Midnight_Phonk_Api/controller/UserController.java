@@ -1,9 +1,11 @@
 package com.example.midnight_phonk_api.Midnight_Phonk_Api.controller;
 
+import com.example.midnight_phonk_api.Midnight_Phonk_Api.dto.LoginRequest;
 import com.example.midnight_phonk_api.Midnight_Phonk_Api.model.Users;
 import com.example.midnight_phonk_api.Midnight_Phonk_Api.repository.UserRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -61,5 +63,18 @@ public class UserController {
                     return ResponseEntity.ok().<Void>build();
                 })
                 .orElse(ResponseEntity.notFound().build());
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<Users> login(@Valid @RequestBody LoginRequest loginRequest) {
+        return userRepository.findByEmail(loginRequest.getEmail())
+                .map(user -> {
+                    if (user.getPassword().equals(loginRequest.getPassword())) {
+                        return ResponseEntity.ok(user);
+                    } else {
+                        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).<Users>build();
+                    }
+                })
+                .orElse(ResponseEntity.status(HttpStatus.UNAUTHORIZED).<Users>build());
     }
 }
